@@ -1,11 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import "./todo.css";
 import {useDispatch} from "react-redux"; 
 import {addTodo,deleteTodo,removeTodo} from "../actions/index";
 
 const Todo=()=>{
-    const[inputData,seeInputData]=useState("");
-    const dipatch=useDispatch();
+    const[inputData,setInputData]=useState("");
+    const dispatch=useDispatch();
    return(
 
              <div className="main-div">
