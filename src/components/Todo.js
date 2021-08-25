@@ -3,20 +3,19 @@ import "./todo.css";
 
 const Todo=()=>{
    return(
-       <>
+
              <div className="main-div">
     <div className="child-div">
     <figure>
       <figcaption>Add Your List Here ...</figcaption>
     </figure>
 
-   <div>
+   <div className="add-item">
    <input type="text" placeholder=" Add Items ..."/>
-   <i></i>
+   {/* <i></i> */}
    </div>
     </div>
     </div>
-       </>
    );
 }
 
