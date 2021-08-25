@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "./todo.css";
 import {useSelector,useDispatch} from "react-redux"; 
-import {addTodo,deleteTodo,removeTodo} from "../actions/index";
+import {addTodo,deleteTodo,deleteAllTodo} from "../actions/index";
 
 const Todo=()=>{
     const[inputData,setInputData]=useState("");
@@ -11,9 +11,7 @@ const Todo=()=>{
 
              <div className="main-div">
     <div className="child-div">
-    <figure>
-      <figcaption>Add Your List Here ...</figcaption>
-    </figure>
+      <h1>Your TODO LIST</h1>
 
    <div className="add-item">
    <input type="text" placeholder=" Add Items ..."
@@ -27,8 +25,8 @@ const Todo=()=>{
              list.map((element)=>{
                  return(
                     <div key={element.id}>
-                        <h3>{element.data}</h3>
-                        <div>
+                        <p className="item-line">{element.data}</p>
+                        <div className="item-line">
                         <i className="far fa-trash-alt add-btn" title="Delete Item" onClick={()=> dispatch(deleteTodo(element.id))}></i>
                         </div>
                   </div>
@@ -37,7 +35,11 @@ const Todo=()=>{
          }
 
      </div>
-   
+    <div>
+        <button 
+        onClick={()=>dispatch(deleteAllTodo())}
+        ><span>Delete All</span></button>
+    </div>
     </div>
     </div>
    );

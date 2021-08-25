@@ -1,4 +1,4 @@
-export const addTodo= (data) => {
+export const addTodo= (data) => { 
     return {
       type: "ADD_TODO",
       payload:{
@@ -15,9 +15,9 @@ export const addTodo= (data) => {
     }
   }
   
-  export const removeTodo= () => {
+  export const deleteAllTodo= () => {
     return {
-      type: "REMOVE_TODO"
+      type: "DELETE_ALL_TODO"
     }
   }
   

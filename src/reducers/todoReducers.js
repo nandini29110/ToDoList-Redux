@@ -5,9 +5,8 @@ const initialData={
 const todoReducers=(state=initialData,action)=>{
      switch(action.type){
          case "ADD_TODO":
-         const {id,data}=action.payload;
+         const {id,data}=action.payload;  // de-structuring
          return{
-             ...state,
              list:[
                  ...state.list,
                  {
@@ -24,7 +23,15 @@ const todoReducers=(state=initialData,action)=>{
             list: newList
          }
 
+       
+
+         case "DELETE_ALL_TODO" : return{
+             ...state,
+             list:[]
+         }
+
          default : return state;
+
      }
 }
 

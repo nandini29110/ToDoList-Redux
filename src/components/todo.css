@@ -1,0 +1,11 @@
+.main-div {
+  text-align: center;
+}
+
+.item-line {
+  display: inline-block;
+}
+
+p {
+  margin: 0;
+}
