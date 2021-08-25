@@ -20,22 +20,24 @@ const Todo=()=>{
        value={inputData}
        onChange={(event)=>setInputData(event.target.value)}
    />
-   <i  onClick={()=>dispatch(addTodo(inputData),setInputData("")) }>+</i>
-     {/* <div>
-         <h3>test</h3> */}
-         {/* <i  title="Delete Item" onClick={()=>dispatch(deleteTodo(inputData),setInputData(""))}></i> */}
-
-         {/* {
-             list.map((element)=>{
-                  <div key={element.id}>
-                    <h3>{element.data}</h3>
-                    <i title="Delete Item" onClick={()=> dispatch(deleteTodo(element.id),setInputData(""))}></i>
-                  </div>
-             })
-         } */}
-
-     {/* </div> */}
+   <i className="fa fa-plus add-btn"  onClick={()=>dispatch(addTodo(inputData),setInputData("")) }></i>
    </div>
+     <div>
+         {
+             list.map((element)=>{
+                 return(
+                    <div key={element.id}>
+                        <h3>{element.data}</h3>
+                        <div>
+                        <i className="far fa-trash-alt add-btn" title="Delete Item" onClick={()=> dispatch(deleteTodo(element.id))}></i>
+                        </div>
+                  </div>
+                 );
+             })
+         }
+
+     </div>
+   
     </div>
     </div>
    );
