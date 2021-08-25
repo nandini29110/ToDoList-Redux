@@ -1,7 +1,11 @@
 import React from "react";
 import "./todo.css";
+import {useDispatch} from "react-redux"; 
+import {addTodo,deleteTodo,removeTodo} from "../actions/index";
 
 const Todo=()=>{
+    const[inputData,seeInputData]=useState("");
+    const dipatch=useDispatch();
    return(
 
              <div className="main-div">
@@ -11,8 +15,11 @@ const Todo=()=>{
     </figure>
 
    <div className="add-item">
-   <input type="text" placeholder=" Add Items ..."/>
-   {/* <i></i> */}
+   <input type="text" placeholder=" Add Items ..."
+       value={inputData}
+       onChange={(event)=>setInputData(event.target.value)}
+   />
+   <i onclick={()=>dispatch(addTodo(inputData)) }>+</i>
    </div>
     </div>
     </div>
