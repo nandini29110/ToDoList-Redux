@@ -1,5 +1,9 @@
 const initialData={
-    list : []
+    list : [{
+        todoListIndex: 1,
+        todoListTitle: "",
+        todoListItems: []
+    }]
 }
 const todoReducers=(state=initialData,action)=>{
      switch(action.type){
