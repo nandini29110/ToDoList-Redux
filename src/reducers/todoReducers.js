@@ -1,7 +1,6 @@
 const initialData={
     list : []
 }
-
 const todoReducers=(state=initialData,action)=>{
      switch(action.type){
          case "ADD_TODO":
@@ -21,9 +20,7 @@ const todoReducers=(state=initialData,action)=>{
          return{
              ...state,
             list: newList
-         }
-
-       
+         } 
 
          case "DELETE_ALL_TODO" : return{
              ...state,

@@ -1,47 +1,41 @@
 import React,{useState} from "react";
-import "./todo.css";
 import {useSelector,useDispatch} from "react-redux"; 
 import {addTodo,deleteTodo,deleteAllTodo} from "../actions/index";
+import "./todo.css";
+import OneTodo from "./OneTodo.js";
 
 const Todo=()=>{
-    const[inputData,setInputData]=useState("");
-    const list=useSelector((state)=>state.todoReducers.list);
     const dispatch=useDispatch();
+    const [newBucketTitle,setNewBucketTitle]=useState("");
+    const handelCreateNewBucket=()=>{
+        console.log("New BUcket with Title "+newBucketTitle);
+        setNewBucketTitle("");
+    }
    return(
+    
+    <>
+     <p>What To Create New Bucket?</p>
+     <input placeholder="Add Title of New BUcket" value={newBucketTitle} onChange={(event)=>{setNewBucketTitle(event.target.value)}}></input>
+     <button  className="create-bucket-btn" onClick={handelCreateNewBucket}><span>CREATE A NEW BUCKET</span></button>
+         {/* {buck.map((buckElements)=>(
+             <TodoBucket bucketTitle={buckElements.title}
+                 bucketItems={buckElements.items}/>
+         ))} */}
 
-             <div className="main-div">
-    <div className="child-div">
-      <h1>Your TODO LIST</h1>
+       {/* {  buck.map((buckone)=>{
+          <TodoBucket 
+                 bucketTitle={listofTodo[0].title}
+                 bucketItems={listofTodo[0].items}    
+           />
+       })
+       } */}
 
-   <div className="add-item">
-   <input type="text" placeholder=" Add Items ..."
-       value={inputData}
-       onChange={(event)=>setInputData(event.target.value)}
-   />
-   <i className="fa fa-plus add-btn"  onClick={()=>dispatch(addTodo(inputData),setInputData("")) }></i>
-   </div>
-     <div>
-         {
-             list.map((element)=>{
-                 return(
-                    <div key={element.id}>
-                        <p className="item-line">{element.data}</p>
-                        <div className="item-line">
-                        <i className="far fa-trash-alt add-btn" title="Delete Item" onClick={()=> dispatch(deleteTodo(element.id))}></i>
-                        </div>
-                  </div>
-                 );
-             })
-         }
-
-     </div>
-    <div>
-        <button 
-        onClick={()=>dispatch(deleteAllTodo())}
-        ><span>Delete All</span></button>
-    </div>
-    </div>
-    </div>
+         {/* <TodoBucket 
+         bucketTitle={listofTodo[0].title}
+         bucketItems={listofTodo[0].items}    
+         /> */}
+    <OneTodo/>
+    </>
    );
 }
 

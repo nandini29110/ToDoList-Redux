@@ -9,3 +9,21 @@
 p {
   margin: 0;
 }
+
+.heading {
+  display: inline-block;
+  margin: 0;
+}
+
+.create-bucket-btn {
+  margin-right: 700px;
+  display: inline-block;
+}
+
+.child-div {
+  height: 300px;
+  width: 300px;
+  background-color: rgb(247, 245, 128);
+  margin-left: 300px;
+  border-radius: 30px;
+}
